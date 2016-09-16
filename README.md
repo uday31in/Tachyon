@@ -7,3 +7,5 @@ It is simple distributed producer/consumer “n-scale” cloud app using Redis a
 
 Schedule N-number of producers and M-number of consumers (with variable processing time) independently. Monitor current work items in a queue with a goal of how quickly (time) & efficiently (compute/$) system can reach equilibrium.
 
+![alt tag](https://github.com/uday31in/Tachyon/blob/master/Tachyon.jpg)
+

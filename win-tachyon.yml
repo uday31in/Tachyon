@@ -3,34 +3,53 @@ services:
     redis:
         build:
             context: .
-            dockerfile: redis.docker
+            dockerfile: win-redis.docker
         ports:
             - "6379:6379"
              
     watcher:
         build:
             context: .
-            dockerfile: watcher.docker
+            dockerfile: win10-x64\Watcher\win-watcher.docker
+            
+        environment:
+            Tachyon_RedisConnectionMultiplexer: 192.168.51.13 
+        
+        entrypoint:
+            - /win10-x64/Watcher/Watcher.exe
+        
+        depends_on:
+            - redis
+    
+    producer:
+        build:
+            context: .
+            dockerfile: win10-x64\producer\win-producer.docker
+            
+        environment:
+            Tachyon_RedisConnectionMultiplexer: 192.168.51.13
+
+        entrypoint :
+            - /win10-x64/Producer/Producer.exe
+            
         depends_on:
             - redis
             
-      
-    producer:
-         build:
-            context: .
-            dockerfile: producer.docker
-            
-         depends_on:
-            - redis
-        
     consumer:
-         build:
+        build:
             context: .
-            dockerfile: consumer.docker
+            dockerfile: win10-x64\consumer\win-consumer.docker
             
-         depends_on:
+        environment:
+            Tachyon_RedisConnectionMultiplexer: 192.168.51.13 
+            
+        entrypoint :
+            - /win10-x64/Consumer/Consumer.exe
+            
+        depends_on:
             - redis
-        
+
+    
 networks:
   default:
     external:

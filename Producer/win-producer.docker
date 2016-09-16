@@ -1,0 +1,7 @@
+FROM my/nano
+
+LABEL Description="watcher" Vendor="ECGCAT" Version="1.0"
+
+ADD win10-x64 /win10-x64
+   
+ENTRYPOINT ["/win10-x64/Producer/Producer.exe"]

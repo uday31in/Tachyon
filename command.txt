@@ -1,0 +1,15 @@
+dotnet.exe publish "C:\Tachyon\Tachyon\Producer" --framework netcoreapp1.0 --runtime ubuntu.14.04-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\ubuntu.14.04-x64\Producer"
+dotnet.exe publish "C:\Tachyon\Tachyon\Consumer" --framework netcoreapp1.0 --runtime ubuntu.14.04-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\ubuntu.14.04-x64\Consumer"
+dotnet.exe publish "C:\Tachyon\Tachyon\Watcher" --framework netcoreapp1.0 --runtime ubuntu.14.04-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\ubuntu.14.04-x64\Watcher"
+
+
+dotnet.exe publish "C:\Tachyon\Tachyon\Producer" --framework netcoreapp1.0 --runtime win10-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\win10-x64\Producer"
+dotnet.exe publish "C:\Tachyon\Tachyon\Consumer" --framework netcoreapp1.0 --runtime win10-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\win10-x64\Consumer"
+dotnet.exe publish "C:\Tachyon\Tachyon\Watcher" --framework netcoreapp1.0 --runtime win10-x64 --output "C:\Tachyon\Tachyon\build\Tachyon\win10-x64\Watcher"
+
+cd C:\Tachyon\Tachyon\build\Tachyon
+docker-compose -f win-tachyon.yml -p tachyon2 build --no-cache
+docker-compose -f win-tachyon.yml -p tachyon2 up -d
+
+
+dotnet.exe publish "C:\Tachyon\Tachyon\DotNetCoreConsoleRedisTest" --framework netcoreapp1.0 --runtime ubuntu.14.04-x64 --output "C:\Tachyon\Tachyon\out\ubuntu.14.04-x64\DotNetCoreConsoleRedisTest"

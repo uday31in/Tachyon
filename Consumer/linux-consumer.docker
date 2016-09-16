@@ -1,0 +1,7 @@
+FROM microsoft/dotnet    
+
+LABEL Description="consumer" Vendor="ECGCAT" Version="1.0"
+
+ADD ubuntu.14.04-x64 /ubuntu.14.04-x64
+
+ENTRYPOINT ["dotnet" , "ubuntu.14.04-x64/Consumer/Consumer.dll"]

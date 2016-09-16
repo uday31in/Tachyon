@@ -1,0 +1,37 @@
+version: '2'
+services:
+    redis:
+        build:
+            context: .
+            dockerfile: redis.docker
+        ports:
+            - "6379:6379"
+             
+    watcher:
+        build:
+            context: .
+            dockerfile: watcher.docker
+        depends_on:
+            - redis
+            
+      
+    producer:
+         build:
+            context: .
+            dockerfile: producer.docker
+            
+         depends_on:
+            - redis
+        
+    consumer:
+         build:
+            context: .
+            dockerfile: consumer.docker
+            
+         depends_on:
+            - redis
+        
+networks:
+  default:
+    external:
+      name: nat

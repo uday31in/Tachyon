@@ -10,28 +10,24 @@ Schedule N-number of producers and M-number of consumers (with variable processi
 
 # Docker Compose
 
-**************************************************
-Building Docker Image
-**************************************************
-docker-compose -f win-tachyon.yml -p tachyon build --force-rm
-**************************************************
 
-**************************************************
-Deploying Docker Service
-**************************************************
-docker-compose -f win-tachyon.yml -p tachyon up -d
-**************************************************
+##Building Docker Image
+
+###docker-compose -f win-tachyon.yml -p tachyon build --force-rm
+
+##Deploying Docker Service
+
+###docker-compose -f win-tachyon.yml -p tachyon up -d
 
 Creating tachyon_redis_1
 Creating tachyon_producer_1
 Creating tachyon_watcher_1
 Creating tachyon_consumer_1
 
-**************************************************
-List Docker Containers
-**************************************************
-docker-compose -f win-tachyon.yml -p tachyon ps
-**************************************************
+
+##List Docker Containers
+###docker-compose -f win-tachyon.yml -p tachyon ps
+
 
        Name                     Command               State           Ports
 ------------------------------------------------------------------------------------

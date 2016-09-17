@@ -1,5 +1,4 @@
-# Tachyon
-Tachyon - DotNet Core App Using Redis
+# Tachyon - DotNet Core App Using Redis & SignalR
 
 It is simple distributed producer/consumer “n-scale” cloud app using Redis and SignalR - ported on .Net Core and ASP.Net Core. It can run cross-platform either as a portable or self-contained app. 
 

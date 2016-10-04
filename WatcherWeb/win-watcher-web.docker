@@ -3,15 +3,9 @@ FROM my/core
 LABEL Description="TachyonWeb" Vendor="ECG CAT" Version="1.0"
 
 RUN powershell -Command \
-    Add-WindowsFeature  Web-WebServer,Web-WebSockets
+    Install-WindowsFeature  Web-WebServer,Web-WebSockets, Web-Asp-Net45
 	
-RUN powershell -Command \
-    Add-WindowsFeature  Web-Asp-Net45
-	
-ADD http://go.microsoft.com/fwlink/?LinkID=309497 /webdeploy.msi
-
-	
-ADD /Tachyon/WatcherWeb /inetpub/wwwroot/
+ADD /Watcher-Web /inetpub/wwwroot/
 
 EXPOSE 80
 
